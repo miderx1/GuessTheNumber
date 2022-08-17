@@ -4,21 +4,32 @@ import numpy as np
 import os
 import site
 
-
-def jogar():
+def jogar(d):
 	global win #
 	global loss
+	
+	if d == 1:
+		resp = np.random.randint(1,50)
+		lim = 50
 
-	resp = np.random.randint(1,50)
+	elif d == 2:
+		resp = np.random.randint(1,100)
+		lim = 100
+
+	else:
+		resp = np.random.randint(1,150)
+		lim = 150
+
 	tent = 10
 
 	while tent >= 1:
 		os.system('CLS')
 
 		print("Tentativas restantes: ",tent)
-		palp = int(input("Digite um numero inteiro entre 1 e 50: "))
+		print("Digite um numero inteiro entre 1 e", str(lim))
+		palp = int(input("Palpite: "))
 
-		if palp >= 1 and palp <= 50:
+		if palp >= 1 and palp <= lim:
 			if palp == resp:
 				os.system('CLS')
 
@@ -212,9 +223,34 @@ while menu != 3:
 	print("[3] Sair")
 	
 	menu = int(input(": "))
-
+	
 	if menu == 1:
-		jogar()
+
+		menu2 = 5
+
+		while menu2 > 4:
+			os.system('CLS')
+			print("Usuário: "+ log +"\n")
+			print("Vitórias: ",win)
+			print("Derrotas: ",loss)
+			print("Winrate: ",round(wr),"%")
+			print("\n Escolha uma das dificuldades abaixo")
+			print("[1] Fácil    (De 1 a 50)")
+			print("[2] Médio    (De 1 a 100) ")
+			print("[3] Difícil  (De 1 a 150)")
+			print("[4] Sair")
+			menu2 = int(input(": "))
+			if menu2 == 1:
+				jogar(1)
+			elif menu2 == 2:
+				jogar(2)
+			elif menu2 == 3:
+				jogar(3)
+			elif menu2 == 4:
+				continue
+			else:
+				print("Opção Inválida!")
+				input()
 
 	elif menu > 3 or menu < 1:
 		os.system('CLS')
