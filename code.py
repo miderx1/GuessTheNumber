@@ -140,7 +140,7 @@ def login(): # Função para o login e cadastro
 					input()
 					continue # Pula todos os comandos dentro desse elif e abaixo dessa linha.
 
-				except: # Conclue que o usuário não existe está apto a ser criado.
+				except: # Conclue que o usuário não existente está apto a ser criado.
 					log_arq = open(log + ".txt","w+") # Cria um arquivo para armazenar os dados da nova conta.
 
 
