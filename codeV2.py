@@ -2,6 +2,14 @@ import os
 import json
 import random
 
+contas = []
+
+try: 
+    with open('contas.json','r',encoding='utf8') as arquivo:
+        contas = json.load(arquivo)
+except:
+    pass
+
 def pause(msg ="Enter para continuar.."):
     input(msg)
 
@@ -97,44 +105,44 @@ def menu_logar():
             pause()
             
 def logar(user_name):
-    usuario = {}
 
-    try:
-        with open(f'{user_name}.json', 'r', encoding='utf8') as arquivo:
-            usuario = json.load(arquivo)
-        
-            while True:
-                os.system('cls')
-                senha = input("Digite a senha: ")
+    usuario = procurar_usuario(user_name)
 
-                if usuario['senha'] == senha:
-                    print("Logado com sucesso!")
-                    pause()
-                    return usuario
-                else:
-                    print("Senha incorreta!")
-                    pause()
-    except FileNotFoundError:
+    if usuario:
+        while True:
+            os.system('cls')
+            senha = input("Digite a senha: ")
+
+            if usuario['senha'] == senha:
+                print("Logado com sucesso!")
+                pause()
+                return usuario
+            else:
+                print("Senha incorreta!")
+                pause()
+    else:
         print("Usuário não encontrado.")
         pause()
         return None
 
 def cadastrar(user_name):
     os.system('cls')
-    usuario = {}
-    try:
-        with open(f'{user_name}.json', 'r', encoding='utf8') as arquivo:
+    usuario = procurar_usuario(user_name)
+
+    if usuario:
             print("Usuário já existe.")
             pause()
             return None
-    except:
-        senha = input("Digite uma senha: ")
+    else:
         usuario['login'] = user_name
+
+        senha = input("Digite uma senha: ")
         usuario['senha'] = senha
         usuario['win']   = 0
         usuario['loss']  = 0
-        with open(f'{user_name}.json', 'w', encoding='utf8') as arquivo:
-            json.dump(usuario,arquivo,ensure_ascii=False,indent=2)
+        
+        contas.append(usuario)
+
 
         os.system('cls')
         print("Conta criada com sucesso!")
@@ -142,10 +150,17 @@ def cadastrar(user_name):
 
         return usuario
     
-def backup(user):
+def procurar_usuario(user_name):
+    for i in contas:
+        if i['login'] == user_name:
+            return i
+    return {}
+
+
+def backup():
     try:
-        with open(f'{user['login']}.json', 'w', encoding='utf8') as arquivo:
-                json.dump(user,arquivo,ensure_ascii=False,indent=2)
+        with open('contas.json', 'w', encoding='utf8') as arquivo:
+                json.dump(contas,arquivo,ensure_ascii=True,indent=2)
     except:
         print("Falha ao tentar realizar Backup")
         pause()
@@ -171,7 +186,7 @@ while True:
             if escolha == 'jogar':
                 user = menu_jogar(user)
             elif escolha == 'deslogar':
-                backup(user)
+                backup()
                 user = {}
                 break
             else:
