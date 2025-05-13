@@ -1,6 +1,8 @@
 from pageUi import Ui_StackedWidget
 from styles import PRIMARY_COLOR, DARKEST_PRIMARY_COLOR
+from utils import isValidEmail
 from PySide6.QtWidgets import QStackedWidget
+import json
 
 
 def make_slot(func,*args,**kwargs):
@@ -9,11 +11,12 @@ def make_slot(func,*args,**kwargs):
     return inner_func
 
 class Main_Window(Ui_StackedWidget,QStackedWidget):
-    def __init__(self,accounts, parent=None, ):
+    def __init__(self,accounts:list, parent=None, ):
         super().__init__(parent)
         self.setupUi(self)
         self.accounts = accounts
         self._activeAccount = {}
+
         self.buttonLogin.setProperty('cssClass','specialButton')
         self.inputUser.setProperty('cssClass','logPageInput')
         self.inputPassword.setProperty('cssClass','logPageInput')
@@ -46,13 +49,23 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.lossLabel.setProperty('cssClass','logPageLabel')
         self.usernameLabel.setProperty('cssClass','logPageLabel')
 
-
         self.buttonRegister.clicked.connect(lambda: self.setCurrentWidget(self.registerPage))
         self.backToLoginButton.clicked.connect(lambda: self.setCurrentWidget(self.loginPage))
-        self.logoutButton.clicked.connect(lambda: self.setCurrentWidget(self.loginPage))
+        self.logoutButton.clicked.connect(self.saveAndBack)
         self.buttonLogin.clicked.connect(self.login)
         self.registerButton.clicked.connect(self.register)
     
+    def saveAndBack(self):
+        self.saveUserStats()
+        self.setCurrentWidget(self.loginPage)
+
+    def saveUserStats(self):
+        try:
+            with open('contas.json', 'w', encoding='utf8') as file:
+                json.dump(self.accounts,file,ensure_ascii=True,indent=2)
+        except:
+            print("Falha ao tentar realizar Backup")
+
     def mainPageUpdate(self):
         self.winsLabel.setText(f'Vitórias: {self._activeAccount['win']}')
         self.lossLabel.setText(f'Derrotas: {self._activeAccount['loss']}')
@@ -89,11 +102,8 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         email = self.cadEmailInput.text()
         confPassword = self.cadConfPassInput.text()
 
-        
-
         print('Registrando usuário',user,password,email,confPassword)
-        
-       
+               
         if not user:
             self.cadUserInfo.setText('Preencha esse campo')
             return
@@ -102,9 +112,14 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
             if user == i['login']:
                 self.cadUserInfo.setText('Usuário já cadastrado')
                 return
-        
+            if email == i['email']:
+                self.cadEmailInfo.setText('Email já cadastrado')
+                return
         if not email:
             self.cadEmailInfo.setText('Preencha esse campo')
+            return
+        elif not isValidEmail(email):
+            self.cadEmailInfo.setText('Email inválido')
             return
         
         if not password:
@@ -123,8 +138,11 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
             loss = 0,
         )
         self._activeAccount = activeUser
+        self.accounts.append(self._activeAccount)
         self.setCurrentWidget(self.mainPage)
         self.usernameLabel.setText(user)
         self.mainPageUpdate()
+
+        # talentos@villelapedras.com.br
 
         

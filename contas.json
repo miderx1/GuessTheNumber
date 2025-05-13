@@ -1,14 +1,23 @@
 [
   {
     "login": "mider",
-    "senha": "256",
-    "win": 1,
+    "senha": "12345",
+    "email": "mider@gmail.com",
+    "win": 0,
     "loss": 0
   },
   {
-    "login": "alan",
-    "senha": "159",
+    "login": "mider2",
+    "senha": "12345",
+    "email": "mider2@gmail.com",
     "win": 0,
-    "loss": 1
+    "loss": 0
+  },
+  {
+    "login": "aasdas",
+    "senha": "1234",
+    "email": "asfasfa@gmail.com",
+    "win": 0,
+    "loss": 0
   }
 ]
