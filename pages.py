@@ -16,6 +16,7 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.setupUi(self)
         self.accounts = accounts
         self._activeAccount = {}
+        self._shots = 0
 
         self.buttonLogin.setProperty('cssClass','specialButton')
         self.inputUser.setProperty('cssClass','logPageInput')
@@ -37,7 +38,7 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.cadConfPassLabel.setProperty('cssClass','logPageLabel')
         self.cadPasswordLabel.setProperty('cssClass','logPageLabel')
         self.cadUserLabel.setProperty('cssClass','logPageLabel')
-        self.CadEmailLabel.setProperty('cssClass','logPageLabel')
+        self.cadEmailLabel.setProperty('cssClass','logPageLabel')
 
         self.playButton.setProperty('cssClass','specialButton')
         self.logoutButton.setProperty('cssClass','secondButton')
@@ -49,22 +50,36 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.lossLabel.setProperty('cssClass','logPageLabel')
         self.usernameLabel.setProperty('cssClass','logPageLabel')
 
+        self.easyButton.setProperty('cssClass','specialButton')
+        self.mediumButton.setProperty('cssClass','specialButton')
+        self.hardButton.setProperty('cssClass','specialButton')
+        self.answerButton.setProperty('cssClass','specialButton')
+        self.backToMenuButton.setProperty('cssClass','secondButton')
+
         self.buttonRegister.clicked.connect(lambda: self.setCurrentWidget(self.registerPage))
         self.backToLoginButton.clicked.connect(lambda: self.setCurrentWidget(self.loginPage))
         self.logoutButton.clicked.connect(self.saveAndBack)
         self.buttonLogin.clicked.connect(self.login)
         self.registerButton.clicked.connect(self.register)
+        self.playButton.clicked.connect(self.startGame)
+        self.answerButton.setDisabled(True)
     
     def saveAndBack(self):
         self.saveUserStats()
         self.setCurrentWidget(self.loginPage)
+    
+    def startGame(self):
+        shots = 10
+        self.setCurrentWidget(self.gamePage)
+        self.shotsLabel.setText(f'Tentativas restantes: {shots}')
+
 
     def saveUserStats(self):
         try:
             with open('contas.json', 'w', encoding='utf8') as file:
                 json.dump(self.accounts,file,ensure_ascii=True,indent=2)
         except:
-            print("Falha ao tentar realizar Backup")
+            print('Falha ao tentar realizar Backup')
 
     def mainPageUpdate(self):
         self.winsLabel.setText(f'Vitórias: {self._activeAccount['win']}')
@@ -142,7 +157,5 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.setCurrentWidget(self.mainPage)
         self.usernameLabel.setText(user)
         self.mainPageUpdate()
-
-        # talentos@villelapedras.com.br
 
         

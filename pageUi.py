@@ -159,10 +159,10 @@ class Ui_StackedWidget(object):
 
         self.gridLayout_3.addWidget(self.cadConfPassLabel, 10, 0, 1, 1)
 
-        self.CadEmailLabel = QLabel(self.registerPage)
-        self.CadEmailLabel.setObjectName(u"CadEmailLabel")
+        self.cadEmailLabel = QLabel(self.registerPage)
+        self.cadEmailLabel.setObjectName(u"cadEmailLabel")
 
-        self.gridLayout_3.addWidget(self.CadEmailLabel, 4, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.cadEmailLabel, 4, 0, 1, 1)
 
         self.cadPasswordLabel = QLabel(self.registerPage)
         self.cadPasswordLabel.setObjectName(u"cadPasswordLabel")
@@ -330,6 +330,99 @@ class Ui_StackedWidget(object):
         self.horizontalLayout_6.addLayout(self.gridLayout_5)
 
         StackedWidget.addWidget(self.mainPage)
+        self.gamePage = QWidget()
+        self.gamePage.setObjectName(u"gamePage")
+        self.horizontalLayout_2 = QHBoxLayout(self.gamePage)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.gridLayout_7 = QGridLayout()
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_12)
+
+        self.backToMenuButton = QPushButton(self.gamePage)
+        self.backToMenuButton.setObjectName(u"backToMenuButton")
+
+        self.horizontalLayout_3.addWidget(self.backToMenuButton)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_13)
+
+
+        self.gridLayout_7.addLayout(self.horizontalLayout_3, 4, 0, 1, 1)
+
+        self.gridLayout_8 = QGridLayout()
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.horizontalSpacer_17 = QSpacerItem(250, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_17, 1, 2, 1, 1)
+
+        self.answerLabel = QLineEdit(self.gamePage)
+        self.answerLabel.setObjectName(u"answerLabel")
+
+        self.gridLayout_8.addWidget(self.answerLabel, 0, 1, 1, 1)
+
+        self.answerButton = QPushButton(self.gamePage)
+        self.answerButton.setObjectName(u"answerButton")
+
+        self.gridLayout_8.addWidget(self.answerButton, 1, 1, 1, 1)
+
+        self.horizontalSpacer_16 = QSpacerItem(250, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_16, 1, 0, 1, 1)
+
+
+        self.gridLayout_7.addLayout(self.gridLayout_8, 1, 0, 1, 1)
+
+        self.resultLabel = QLabel(self.gamePage)
+        self.resultLabel.setObjectName(u"resultLabel")
+        self.resultLabel.setMaximumSize(QSize(16777215, 50))
+        self.resultLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_7.addWidget(self.resultLabel, 0, 0, 1, 1)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_14)
+
+        self.easyButton = QPushButton(self.gamePage)
+        self.easyButton.setObjectName(u"easyButton")
+
+        self.horizontalLayout_7.addWidget(self.easyButton)
+
+        self.mediumButton = QPushButton(self.gamePage)
+        self.mediumButton.setObjectName(u"mediumButton")
+
+        self.horizontalLayout_7.addWidget(self.mediumButton)
+
+        self.hardButton = QPushButton(self.gamePage)
+        self.hardButton.setObjectName(u"hardButton")
+
+        self.horizontalLayout_7.addWidget(self.hardButton)
+
+        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_15)
+
+
+        self.gridLayout_7.addLayout(self.horizontalLayout_7, 3, 0, 1, 1)
+
+        self.shotsLabel = QLabel(self.gamePage)
+        self.shotsLabel.setObjectName(u"shotsLabel")
+        self.shotsLabel.setMaximumSize(QSize(16777215, 10))
+        self.shotsLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_7.addWidget(self.shotsLabel, 2, 0, 1, 1)
+
+
+        self.horizontalLayout_2.addLayout(self.gridLayout_7)
+
+        StackedWidget.addWidget(self.gamePage)
 
         self.retranslateUi(StackedWidget)
 
@@ -350,7 +443,7 @@ class Ui_StackedWidget(object):
         self.labelTitle.setText(QCoreApplication.translate("StackedWidget", u"Login", None))
         self.cadUserInfo.setText("")
         self.cadConfPassLabel.setText(QCoreApplication.translate("StackedWidget", u"Confirme a senha", None))
-        self.CadEmailLabel.setText(QCoreApplication.translate("StackedWidget", u"E-mail", None))
+        self.cadEmailLabel.setText(QCoreApplication.translate("StackedWidget", u"E-mail", None))
         self.cadPasswordLabel.setText(QCoreApplication.translate("StackedWidget", u"Senha", None))
         self.cadasterTitle.setText(QCoreApplication.translate("StackedWidget", u"Cadastrar", None))
         self.cadEmailInfo.setText("")
@@ -366,5 +459,13 @@ class Ui_StackedWidget(object):
         self.playButton.setText(QCoreApplication.translate("StackedWidget", u"Jogar", None))
         self.logoutButton.setText(QCoreApplication.translate("StackedWidget", u"Sair", None))
         self.lossLabel.setText("")
+        self.backToMenuButton.setText(QCoreApplication.translate("StackedWidget", u"Voltar ao menu", None))
+        self.answerLabel.setPlaceholderText(QCoreApplication.translate("StackedWidget", u"Palpite", None))
+        self.answerButton.setText(QCoreApplication.translate("StackedWidget", u"Enviar", None))
+        self.resultLabel.setText("")
+        self.easyButton.setText(QCoreApplication.translate("StackedWidget", u"F\u00e1cil", None))
+        self.mediumButton.setText(QCoreApplication.translate("StackedWidget", u"M\u00e9dio", None))
+        self.hardButton.setText(QCoreApplication.translate("StackedWidget", u"Dif\u00edcil", None))
+        self.shotsLabel.setText("")
     # retranslateUi
 
