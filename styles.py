@@ -1,65 +1,71 @@
-PRIMARY_COLOR = '#0f347a'
-DARKER_PRIMARY_COLOR = '#0f347a'
-DARKEST_PRIMARY_COLOR = '#0a2455'
+from qt_material import apply_stylesheet
 
-qss = f"""
+PRIMARY_COLOR = '#76A5D3'
+DARKER_PRIMARY_COLOR = '#4B82BB'
+DARKEST_PRIMARY_COLOR = '#284E7C'
+
+lightQss = f"""
     QWidget{{
-        background: {DARKEST_PRIMARY_COLOR};
+        background: #fff;
     }}
-    QPushButton[cssClass="specialButton"] {{
+
+
+    QPushButton{{
         width: 120px;
-        height: 25px;
+        height: 40px;
         font-size: x-large;
         font-weight: 450;
-        color: rgb(15, 52, 122);
-        border: 0;
+        color: #fff;
+        border: 2px solid {DARKEST_PRIMARY_COLOR};
         border-radius: 10px;
-        background-color: rgb(255, 255, 255);
+        background-color: {PRIMARY_COLOR};
     }}
-    QPushButton[cssClass="specialButton"]:hover {{
+    QPushButton:hover {{
         color: #fff;
         background: {DARKER_PRIMARY_COLOR};
     }}
-    QPushButton[cssClass="specialButton"]:pressed {{
+    QPushButton:pressed {{
         color: #fff;
         background: {DARKEST_PRIMARY_COLOR};
     }}
-    QPushButton[cssClass="secondButton"]{{
-        width: 120px;
-        height: 25px;
-        font-size: x-large;
+    QPushButton[cssClass="specialButton"]{{
+        font-size: 13px;
         font-weight: 450;
-        color: rgb(15, 52, 122);
-        border: 0;
-        border-radius: 10px;
+        color: {PRIMARY_COLOR};
+        background: #fff;
+        border: 0px;
     }}
-    QPushButton[cssClass="secondButton"]:hover{{
-        color:#FFF;
+    QPushButton[cssClass="specialButton"]:hover{{
+        color:{DARKEST_PRIMARY_COLOR};
     }}
-    QLineEdit[cssClass="logPageInput"]{{
+    QPushButton:disabled {{
+        background-color: {PRIMARY_COLOR};
+    }}
+    QLineEdit{{
         padding-left: 10px;
         border-radius: 10px;;
         width: 300px;
-        height: 20px;
+        height: 40px;
         font-size: larger;
-        color: rgb(255, 255, 255);
-        background: rgb(15, 52, 122);
-        border: 0;
+        color: {DARKEST_PRIMARY_COLOR};
+        border: 2px solid {PRIMARY_COLOR};
+
     }}
-    QLabel[cssClass="logPageLabel"]{{
-        color: #fff;
+    QLabel{{
+        color: {DARKEST_PRIMARY_COLOR};
         font-size: 20px;
     }}
     QLabel[cssClass="title"]{{
-        color: white;
         font-weight: 400;
         font-size: 50px;
     }}
     QLabel[cssClass="warning"]{{
         color:red;
+        font-size: 15px;
     }}
 
 """
 
 def setupTheme(app):
-    app.setStyleSheet(app.styleSheet() + qss)
+
+    app.setStyleSheet(app.styleSheet() + lightQss)

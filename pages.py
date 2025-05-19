@@ -1,7 +1,7 @@
 from pageUi import Ui_StackedWidget
 from styles import PRIMARY_COLOR, DARKEST_PRIMARY_COLOR
 from utils import isValidEmail
-from PySide6.QtWidgets import QStackedWidget
+from PySide6.QtWidgets import QStackedWidget,QPushButton
 import json
 
 
@@ -18,43 +18,25 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self._activeAccount = {}
         self._shots = 0
 
-        self.buttonLogin.setProperty('cssClass','specialButton')
-        self.inputUser.setProperty('cssClass','logPageInput')
-        self.inputPassword.setProperty('cssClass','logPageInput')
-        self.labelUser.setProperty('cssClass','logPageLabel')
-        self.labelPassword.setProperty('cssClass','logPageLabel')
         self.labelTitle.setProperty('cssClass','title')
-        self.buttonRegister.setProperty('cssClass','secondButton')
-        self.forgetPassLabel.setProperty('cssClass','secondButton')
+        self.buttonRegister.setProperty('cssClass','specialButton')
+        self.forgetPassLabel.setProperty('cssClass','specialButton')
         self.labelInfo.setProperty('cssClass','warning')
-
         self.cadasterTitle.setProperty('cssClass','title')
-        self.cadEmailInput.setProperty('cssClass','logPageInput')
-        self.cadPasswordInput.setProperty('cssClass','logPageInput')
-        self.cadUserInput.setProperty('cssClass','logPageInput')
-        self.cadConfPassInput.setProperty('cssClass','logPageInput')
-        self.backToLoginButton.setProperty('cssClass','secondButton')
-        self.registerButton.setProperty('cssClass','specialButton')
-        self.cadConfPassLabel.setProperty('cssClass','logPageLabel')
-        self.cadPasswordLabel.setProperty('cssClass','logPageLabel')
-        self.cadUserLabel.setProperty('cssClass','logPageLabel')
-        self.cadEmailLabel.setProperty('cssClass','logPageLabel')
 
-        self.playButton.setProperty('cssClass','specialButton')
-        self.logoutButton.setProperty('cssClass','secondButton')
+        self.cadConfPassInfo.setProperty('cssClass','warning')
+        self.cadEmailInfo.setProperty('cssClass','warning')
+        self.cadUserInfo.setProperty('cssClass','warning')
+        self.cadPassInfo.setProperty('cssClass','warning')
+        self.backToLoginButton.setProperty('cssClass','specialButton')
+
+        self.logoutButton.setProperty('cssClass','specialButton')
         self.menuTitle.setProperty('cssClass','title')
         self.menuTitle.setStyleSheet('font-size: 30px')
-        self.winsLabel.setProperty('cssClass','logPageLabel')
         self.winsLabel.setStyleSheet('color: green')
         self.lossLabel.setStyleSheet('color: red')
-        self.lossLabel.setProperty('cssClass','logPageLabel')
-        self.usernameLabel.setProperty('cssClass','logPageLabel')
 
-        self.easyButton.setProperty('cssClass','specialButton')
-        self.mediumButton.setProperty('cssClass','specialButton')
-        self.hardButton.setProperty('cssClass','specialButton')
-        self.answerButton.setProperty('cssClass','specialButton')
-        self.backToMenuButton.setProperty('cssClass','secondButton')
+        self.gameTitle.setProperty('cssClass','title')
 
         self.buttonRegister.clicked.connect(lambda: self.setCurrentWidget(self.registerPage))
         self.backToLoginButton.clicked.connect(lambda: self.setCurrentWidget(self.loginPage))
@@ -62,8 +44,49 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.buttonLogin.clicked.connect(self.login)
         self.registerButton.clicked.connect(self.register)
         self.playButton.clicked.connect(self.startGame)
-        self.answerButton.setDisabled(True)
-    
+
+
+        # easyPlay = make_slot(self.play,self.easyButton)
+        # mediumPlay = make_slot(self.play,self.mediumButton)
+        # hardPlay = make_slot(self.play,self.hardButton)
+
+        self.easyButton.clicked.connect(self.play)
+        self.mediumButton.clicked.connect(self.play)
+        self.hardButton.clicked.connect(self.play)
+
+        self.setGameVisible(False)
+        
+
+
+    def play(self):
+        button = self.sender()
+
+        dificultButtons = [self.easyButton,self.mediumButton,self.hardButton]
+
+        dificults = {
+            'Fácil' : 100,
+            'Médio' : 150,
+            'Difícil' : 200
+        }
+
+        for i in dificultButtons:
+            if button.text() == i.text():
+                gameRange = dificults[button.text()]
+                button.setStyleSheet(f'background-color: {DARKEST_PRIMARY_COLOR}')
+            else:
+                i.setDisabled(True)
+        
+        self.rangeLabel.setText(f'Intervalo: 1 até {gameRange}')
+        self.setGameVisible(True)
+                  
+
+    def setGameVisible(self,value):
+        self.shotInput.setVisible(value)
+        self.shotsLabel.setVisible(value)
+        self.answerButton.setVisible(value)
+        self.rangeLabel.setVisible(value)
+        self.gameInfoLabel.setVisible(value)
+
     def saveAndBack(self):
         self.saveUserStats()
         self.setCurrentWidget(self.loginPage)
@@ -71,7 +94,7 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
     def startGame(self):
         shots = 10
         self.setCurrentWidget(self.gamePage)
-        self.shotsLabel.setText(f'Tentativas restantes: {shots}')
+        self.initLabel.setText('Escolha uma dificuldade')
 
 
     def saveUserStats(self):

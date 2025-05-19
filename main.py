@@ -1,3 +1,4 @@
+
 from styles import setupTheme
 from pages import Main_Window
 import json
