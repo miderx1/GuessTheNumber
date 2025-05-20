@@ -26,7 +26,7 @@
    <string>StackedWidget</string>
   </property>
   <property name="currentIndex">
-   <number>3</number>
+   <number>0</number>
   </property>
   <widget class="QWidget" name="loginPage">
    <property name="styleSheet">
@@ -685,7 +685,7 @@
       <item>
        <widget class="QLineEdit" name="shotInput">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="placeholderText">
          <string>Digite um número</string>
@@ -695,7 +695,7 @@
       <item>
        <widget class="QPushButton" name="answerButton">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
         <property name="text">
          <string>Enviar palpite</string>

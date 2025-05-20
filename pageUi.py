@@ -373,15 +373,15 @@ class Ui_StackedWidget(object):
 
         self.verticalLayout.addLayout(self.gameButtons)
 
-        self.shotInput = QLineEdit(self.gamePage)
-        self.shotInput.setObjectName(u"shotInput")
-        self.shotInput.setEnabled(False)
+        self.answerInput = QLineEdit(self.gamePage)
+        self.answerInput.setObjectName(u"answerInput")
+        self.answerInput.setEnabled(True)
 
-        self.verticalLayout.addWidget(self.shotInput)
+        self.verticalLayout.addWidget(self.answerInput)
 
         self.answerButton = QPushButton(self.gamePage)
         self.answerButton.setObjectName(u"answerButton")
-        self.answerButton.setEnabled(False)
+        self.answerButton.setEnabled(True)
 
         self.verticalLayout.addWidget(self.answerButton)
 
@@ -456,11 +456,11 @@ class Ui_StackedWidget(object):
         self.easyButton.setText(QCoreApplication.translate("StackedWidget", u"F\u00e1cil", None))
         self.mediumButton.setText(QCoreApplication.translate("StackedWidget", u"M\u00e9dio", None))
         self.hardButton.setText(QCoreApplication.translate("StackedWidget", u"Dif\u00edcil", None))
-        self.shotInput.setPlaceholderText(QCoreApplication.translate("StackedWidget", u"Digite um n\u00famero", None))
+        self.answerInput.setPlaceholderText(QCoreApplication.translate("StackedWidget", u"Digite um n\u00famero", None))
         self.answerButton.setText(QCoreApplication.translate("StackedWidget", u"Enviar palpite", None))
-        self.shotsLabel.setText(QCoreApplication.translate("StackedWidget", u"Tentativas Restantes: XX", None))
-        self.gameInfoLabel.setText(QCoreApplication.translate("StackedWidget", u"Errouuu", None))
-        self.rangeLabel.setText(QCoreApplication.translate("StackedWidget", u"Intervalo: 1 a 100", None))
+        self.shotsLabel.setText("")
+        self.gameInfoLabel.setText("")
+        self.rangeLabel.setText("")
         self.backToMenuButton.setText(QCoreApplication.translate("StackedWidget", u"Voltar ao Menu", None))
     # retranslateUi
 

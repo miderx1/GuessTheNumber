@@ -8,7 +8,7 @@ import sys
 
 contas = []
 
-try: 
+try:
     with open('contas.json','r',encoding='utf8') as arquivo:
         contas = json.load(arquivo)
 except:
