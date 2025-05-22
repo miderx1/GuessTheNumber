@@ -32,46 +32,67 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_12">
     <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="11" column="0">
-       <widget class="QLabel" name="labelInfo">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLineEdit" name="inputPassword">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="echoMode">
-         <enum>QLineEdit::EchoMode::Password</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <spacer name="horizontalSpacer_3">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="7" column="1">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="1">
+           <widget class="QPushButton" name="loginRegisterButton">
+            <property name="text">
+             <string>Cadastrar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="loginButton">
+            <property name="text">
+             <string>Entrar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLabel" name="loginLabelInfo">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <spacer name="horizontalSpacer_6">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
           </property>
@@ -83,20 +104,34 @@
           </property>
          </spacer>
         </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="buttonLogin">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string>Entrar</string>
-          </property>
-         </widget>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="loginUserInput"/>
         </item>
-        <item row="0" column="2">
+        <item row="6" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QPushButton" name="forgetPassButton">
+            <property name="text">
+             <string>Esqueceu sua senha?</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="0">
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Orientation::Horizontal</enum>
@@ -110,300 +145,202 @@
          </spacer>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="buttonRegister">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
+         <widget class="QLabel" name="loginTitle">
           <property name="text">
-           <string>Cadastrar</string>
+           <string>Login</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLineEdit" name="inputUser">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="labelPassword">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string>Senha</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <spacer name="verticalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Orientation::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>10</width>
-          <height>10</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="12" column="0">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Orientation::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="0">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Orientation::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="labelUser">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string>Usuário</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QPushButton" name="forgetPassLabel">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string>Esqueceu sua senha?</string>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="loginPasswordInput">
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
           </property>
          </widget>
         </item>
-        <item>
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
+        <item row="2" column="1">
+         <widget class="QLabel" name="loginUserLabel">
+          <property name="text">
+           <string>Usuário</string>
           </property>
-          <property name="sizeHint" stdset="0">
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="loginPasswordLabel">
+          <property name="text">
+           <string>Senha</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QPushButton" name="loginDarkMode">
+          <property name="maximumSize">
            <size>
             <width>30</width>
-            <height>20</height>
+            <height>30</height>
            </size>
           </property>
-         </spacer>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="labelTitle">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string>Login</string>
-        </property>
-       </widget>
-      </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
   <widget class="QWidget" name="registerPage">
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <spacer name="horizontalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="3" column="0">
-       <widget class="QLabel" name="cadUserInfo">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="cadConfPassLabel">
-        <property name="text">
-         <string>Confirme a senha</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="cadEmailLabel">
-        <property name="text">
-         <string>E-mail</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="cadPasswordLabel">
-        <property name="text">
-         <string>Senha</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0">
-       <widget class="QLineEdit" name="cadConfPassInput">
-        <property name="echoMode">
-         <enum>QLineEdit::EchoMode::Password</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLineEdit" name="cadEmailInput"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="cadasterTitle">
-        <property name="text">
-         <string>Cadastrar</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="cadEmailInfo">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="cadPageInfo">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="0">
-       <layout class="QGridLayout" name="gridLayout_4">
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="4" column="1">
+         <widget class="QLabel" name="cadEmailLabel">
+          <property name="text">
+           <string>Email</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="13" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QPushButton" name="backToLoginButton">
+            <property name="text">
+             <string>Voltar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="registerButton">
+            <property name="text">
+             <string>Cadastrar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
         <item row="0" column="1">
-         <widget class="QPushButton" name="registerButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
+         <widget class="QLabel" name="cadasterTitle">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
           </property>
           <property name="text">
            <string>Cadastrar</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="backToLoginButton">
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
+        <item row="5" column="0">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
           </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="9" column="1">
+         <widget class="QLabel" name="cadPassInfo">
           <property name="text">
-           <string>Voltar</string>
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QLabel" name="cadConfPassInfo">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLabel" name="cadConfPassLabel">
+          <property name="text">
+           <string>Confirme a senha</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="cadEmailInput"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="cadUserLabel">
+          <property name="text">
+           <string>Nome de usuário</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="cadEmailInfo">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLabel" name="cadPassLabel">
+          <property name="text">
+           <string>Senha</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="cadUserInfo">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="cadPassInput">
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="cadUserInput"/>
+        </item>
+        <item row="11" column="1">
+         <widget class="QLineEdit" name="cadConfPassInput">
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
           </property>
          </widget>
         </item>
        </layout>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="cadUserLabel">
-        <property name="text">
-         <string>Usuário</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLineEdit" name="cadPasswordInput">
-        <property name="echoMode">
-         <enum>QLineEdit::EchoMode::Password</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="cadConfPassInfo">
+      <item>
+       <widget class="QPushButton" name="cadDarkMode">
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLineEdit" name="cadUserInput"/>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="cadPassInfo">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>15</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="text">
@@ -412,19 +349,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_7">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
@@ -432,7 +356,7 @@
    <layout class="QHBoxLayout" name="horizontalLayout_6">
     <item>
      <layout class="QGridLayout" name="gridLayout_5">
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="QLabel" name="usernameLabel">
         <property name="maximumSize">
          <size>
@@ -448,17 +372,39 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="menuTitle">
+      <item row="5" column="1">
+       <widget class="QLabel" name="lossLabel">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
-         <string>ADIVINHE O NUMERO</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="0" column="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_15"/>
+      </item>
+      <item row="4" column="0">
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="1">
        <widget class="QLabel" name="winsLabel">
         <property name="maximumSize">
          <size>
@@ -474,23 +420,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
-       <spacer name="verticalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Orientation::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>100</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="1">
+      <item row="1" column="1">
        <spacer name="verticalSpacer_5">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
@@ -506,7 +436,17 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="2">
+      <item row="2" column="1">
+       <widget class="QLabel" name="menuTitle">
+        <property name="text">
+         <string>ADIVINHE O NUMERO</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
        <spacer name="horizontalSpacer_9">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
@@ -519,7 +459,7 @@
         </property>
        </spacer>
       </item>
-      <item row="6" column="1">
+      <item row="7" column="1">
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="1">
          <widget class="QPushButton" name="playButton">
@@ -563,36 +503,7 @@
         </item>
        </layout>
       </item>
-      <item row="3" column="0">
-       <spacer name="horizontalSpacer_8">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLabel" name="lossLabel">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
+      <item row="6" column="1">
        <spacer name="verticalSpacer_6">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
@@ -607,6 +518,35 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="8" column="1">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>100</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="menuDarkMode">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -757,6 +697,22 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="gameDarkMode">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -863,6 +819,22 @@
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="recPassDarkMode">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
