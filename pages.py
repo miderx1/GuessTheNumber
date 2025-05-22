@@ -1,6 +1,7 @@
 from pageUi import Ui_StackedWidget
 from styles import PRIMARY_COLOR, DARKEST_PRIMARY_COLOR,DARKER_PRIMARY_COLOR
 from utils import isValidEmail, isNumber
+from emailSender import sendEmail
 from PySide6.QtWidgets import QStackedWidget,QPushButton
 import json
 import random
@@ -38,11 +39,18 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.menuTitle.setStyleSheet('font-size: 30px')
         self.winsLabel.setStyleSheet('color: green')
         self.lossLabel.setStyleSheet('color: red')
+        self.passRecInfo.setStyleSheet('font-size: 15px')
 
         self.gameTitle.setProperty('cssClass','title')
+        self.passRecTitle.setProperty('cssClass','title')
+        self.backToLoginButton2.setProperty('cssClass','specialButton')
 
         self.buttonRegister.clicked.connect(lambda: self.setCurrentWidget(self.registerPage))
+        self.forgetPassLabel.clicked.connect(lambda: self.setCurrentWidget(self.passRecPage))
         self.backToLoginButton.clicked.connect(lambda: self.setCurrentWidget(self.loginPage))
+        self.backToMenuButton.clicked.connect(lambda: self.setCurrentWidget(self.mainPage))
+        self.backToLoginButton2.clicked.connect(self.backToLoginPage)
+
         self.logoutButton.clicked.connect(self.saveAndBack)
         self.buttonLogin.clicked.connect(self.login)
         self.registerButton.clicked.connect(self.register)
@@ -52,8 +60,14 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         self.easyButton.clicked.connect(self.play)
         self.mediumButton.clicked.connect(self.play)
         self.hardButton.clicked.connect(self.play)
-        self.backToMenuButton.clicked.connect(lambda: self.setCurrentWidget(self.mainPage))
         
+        self.sendEmailButton.clicked.connect(self.recoverPassword)
+
+    def backToLoginPage(self):
+        self.passRecInfo.clear()
+        self.emailOrNickInput.clear()
+        self.setCurrentWidget(self.loginPage)
+
     def play(self):
         self.backToMenuButton.setDisabled(True)
         self._shots = 10
@@ -174,6 +188,23 @@ class Main_Window(Ui_StackedWidget,QStackedWidget):
         except:
             print('Falha ao tentar realizar Backup')
 
+    def recoverPassword(self):
+        inputText = self.emailOrNickInput.text()
+        userKey = ''
+
+        if isValidEmail(inputText):
+            userKey = 'email'
+        else:
+            userKey = 'login'
+
+        for i in self._accounts:
+            if i[userKey] == inputText:
+                sendEmail(i)
+                self.passRecInfo.setText("Senha enviada para o email cadastrado")
+                return
+        
+        self.passRecInfo.setText(f"Não foi encontrado usuário com esse {userKey} cadastrado")
+        
     def mainPageUpdate(self):
         self.winsLabel.setText(f'Vitórias: {self._activeAccount['win']}')
         self.lossLabel.setText(f'Derrotas: {self._activeAccount['loss']}')

@@ -415,10 +415,76 @@ class Ui_StackedWidget(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout)
 
         StackedWidget.addWidget(self.gamePage)
+        self.passRecPage = QWidget()
+        self.passRecPage.setObjectName(u"passRecPage")
+        self.horizontalLayout_3 = QHBoxLayout(self.passRecPage)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.passRecTitle = QLabel(self.passRecPage)
+        self.passRecTitle.setObjectName(u"passRecTitle")
+        self.passRecTitle.setMaximumSize(QSize(16777215, 100))
+        self.passRecTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.passRecTitle)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_12)
+
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.emailOrNickLabel = QLabel(self.passRecPage)
+        self.emailOrNickLabel.setObjectName(u"emailOrNickLabel")
+        self.emailOrNickLabel.setMaximumSize(QSize(16777215, 30))
+
+        self.verticalLayout_3.addWidget(self.emailOrNickLabel)
+
+        self.emailOrNickInput = QLineEdit(self.passRecPage)
+        self.emailOrNickInput.setObjectName(u"emailOrNickInput")
+
+        self.verticalLayout_3.addWidget(self.emailOrNickInput)
+
+        self.sendEmailButton = QPushButton(self.passRecPage)
+        self.sendEmailButton.setObjectName(u"sendEmailButton")
+
+        self.verticalLayout_3.addWidget(self.sendEmailButton)
+
+        self.backToLoginButton2 = QPushButton(self.passRecPage)
+        self.backToLoginButton2.setObjectName(u"backToLoginButton2")
+
+        self.verticalLayout_3.addWidget(self.backToLoginButton2)
+
+
+        self.horizontalLayout_7.addLayout(self.verticalLayout_3)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_13)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_7)
+
+        self.passRecInfo = QLabel(self.passRecPage)
+        self.passRecInfo.setObjectName(u"passRecInfo")
+        self.passRecInfo.setMaximumSize(QSize(16777215, 30))
+        font = QFont()
+        font.setPointSize(5)
+        self.passRecInfo.setFont(font)
+        self.passRecInfo.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.passRecInfo)
+
+
+        self.horizontalLayout_3.addLayout(self.verticalLayout_2)
+
+        StackedWidget.addWidget(self.passRecPage)
 
         self.retranslateUi(StackedWidget)
 
-        StackedWidget.setCurrentIndex(0)
+        StackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(StackedWidget)
@@ -462,5 +528,10 @@ class Ui_StackedWidget(object):
         self.gameInfoLabel.setText("")
         self.rangeLabel.setText("")
         self.backToMenuButton.setText(QCoreApplication.translate("StackedWidget", u"Voltar ao Menu", None))
+        self.passRecTitle.setText(QCoreApplication.translate("StackedWidget", u"Recuperar senha", None))
+        self.emailOrNickLabel.setText(QCoreApplication.translate("StackedWidget", u"Email ou nome de usu\u00e1rio", None))
+        self.sendEmailButton.setText(QCoreApplication.translate("StackedWidget", u"Enviar", None))
+        self.backToLoginButton2.setText(QCoreApplication.translate("StackedWidget", u"Voltar", None))
+        self.passRecInfo.setText(QCoreApplication.translate("StackedWidget", u".", None))
     # retranslateUi
 
